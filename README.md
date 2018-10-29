@@ -13,9 +13,9 @@
 
 ## More details:
 --------------------------------------
-#### Additional Information:
+#### Additional Information: https://github.com/DRModi/springboot-soap-country-api/blob/master/additionalInformation
 #### Service WSDL: http://localhost:8091/soap-ws/country.wsdl
 #### Service URL: http://localhost:8091/soap-ws
-#### Service XSD Schema:
-#### Sample Request and Response:
-#### Sample Exception Request and Response:
+#### Service XSD Schema: https://github.com/DRModi/springboot-soap-country-api/blob/master/src/main/resources/country.xsd
+#### Sample Request and Response: https://github.com/DRModi/springboot-soap-country-api/blob/master/src/main/resources/soap-exception-usa.xml
+#### Sample Exception Request and Response: https://github.com/DRModi/springboot-soap-country-api/blob/master/src/main/resources/soap-exception-usa.xml

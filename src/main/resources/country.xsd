@@ -1,0 +1,33 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://drmodi.learn.com/model/country"
+           targetNamespace="http://drmodi.learn.com/model/country"
+           elementFormDefault="qualified">
+
+    <xs:element name="getCountryRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="countryCode" type="xs:string" default="in"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getCountryResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="country" type="tns:country"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="country">
+        <xs:sequence>
+            <xs:element name="countryFullName" type="xs:string" default="" minOccurs="0"/>
+            <xs:element name="countryCapitalName" type="xs:string" default="" minOccurs="0"/>
+            <xs:element name="countryAlpha3Code" type="xs:string" default="" minOccurs="0"/>
+            <xs:element name="countryPopulation" type="xs:long" default="0" minOccurs="0"/>
+            <xs:element name="message" type="xs:string" default="" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>
+

@@ -1,0 +1,38 @@
+
+
+<!-- Request -->
+
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                                     xmlns:countryns="http://drmodi.learn.com/model/country">
+    <soapenv:Header/>
+
+    <soapenv:Body>
+        <countryns:getCountryRequest>
+            <countryns:countryCode>us</countryns:countryCode>
+        </countryns:getCountryRequest>
+    </soapenv:Body>
+
+</soapenv:Envelope>
+
+
+
+<!-- Response -->
+
+<!--
+
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP-ENV:Header/>
+    <SOAP-ENV:Body>
+        <ns2:getCountryResponse xmlns:ns2="http://drmodi.learn.com/model/country">
+            <ns2:country>
+                <ns2:countryFullName>UNITED STATES OF AMERICA</ns2:countryFullName>
+                <ns2:countryCapitalName>WASHINGTON, D.C</ns2:countryCapitalName>
+                <ns2:countryAlpha3Code>USA</ns2:countryAlpha3Code>
+                <ns2:countryPopulation>323947000</ns2:countryPopulation>
+            </ns2:country>
+        </ns2:getCountryResponse>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+
+-->

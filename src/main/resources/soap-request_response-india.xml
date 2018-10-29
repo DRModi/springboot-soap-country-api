@@ -1,0 +1,37 @@
+
+
+<!-- Request -->
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <getCountryRequest xmlns="http://drmodi.learn.com/model/country">
+            <countryCode>in</countryCode>
+        </getCountryRequest>
+    </soapenv:Body>
+</soapenv:Envelope>
+
+
+
+
+
+
+<!-- Response -->
+
+<!--
+
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP-ENV:Header/>
+    <SOAP-ENV:Body>
+        <ns2:getCountryResponse xmlns:ns2="http://drmodi.learn.com/model/country">
+            <ns2:country>
+                <ns2:countryFullName>INDIA</ns2:countryFullName>
+                <ns2:countryCapitalName>NEW DELHI</ns2:countryCapitalName>
+                <ns2:countryAlpha3Code>IND</ns2:countryAlpha3Code>
+                <ns2:countryPopulation>1295210000</ns2:countryPopulation>
+            </ns2:country>
+        </ns2:getCountryResponse>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+
+-->

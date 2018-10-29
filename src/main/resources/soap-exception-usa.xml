@@ -1,0 +1,38 @@
+
+
+<!-- Request -->
+
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                                     xmlns:countryns="http://drmodi.learn.com/model/country">
+    <soapenv:Header/>
+
+    <soapenv:Body>
+        <countryns:getCountryRequest>
+            <countryns:countryCode>us-invalid</countryns:countryCode>
+        </countryns:getCountryRequest>
+    </soapenv:Body>
+
+</soapenv:Envelope>
+
+
+
+<!-- Response -->
+
+<!--
+
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP-ENV:Header/>
+    <SOAP-ENV:Body>
+        <SOAP-ENV:Fault>
+            <faultcode>SOAP-ENV:Server</faultcode>
+            <faultstring xml:lang="en">ERROR</faultstring>
+            <detail>
+                <code>NOT_FOUND</code>
+                <description># us-invalid # being passed as country code in request. Possible Country code values are : {in, us or ch}. Use according country alpha2code!</description>
+            </detail>
+        </SOAP-ENV:Fault>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+
+-->

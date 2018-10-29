@@ -1,0 +1,68 @@
+(1) create project using start.spring.io - used version 1.5.16
+ - Type SOAP and added webservice as dependency (<artifactId>spring-boot-starter-web-services</artifactId>)
+
+(2) Add wsdl4j dependency - it is already defined in Spring boot dependency and we need to include in our project by referring into pom.xml
+
+(3) Define country xsd
+
+(4) use JAXB plugin - generate client stubs
+
+(5) create Country service - retrieve country detail based on alpha2code
+
+(6) Create endpoint - annotate with @Endpoint similar like @RestController in Spring MVC
+
+    Define request payload / payload root and response payload
+
+(7) Web Service config - to let Spring framework know tha boot up this service
+    - SoapWS is different then spring MVC (so extend it to WsConfigurerAdapter)
+    - Override Servlet Registry Bean (message servlet dispatcher), in order to start webservice at particular option,
+      add wsdl location - this is register our service with particular path like /soapWS/CountryDetails/*
+    - Create bean for loading XSD schema
+    - Add WSDL definition to Spring - Default wsdl11 definition
+
+(8) Extended the support for SoapFault Message:
+
+    - Endpoint Throws Exception
+      This endpoint throws an exception. We provide a message and a custom ServiceFault.
+      This ServiceFault has a code, describing what error has occurred with a detailed message what happened.
+
+    - ServiceFaultException Exception
+      The ServiceFaultException extends from RuntimeException, so we don’t need to catch or add it to our method signature.
+      With the ServiceFault object we can add some detailed information about the error that occurred.
+
+    - The ServiceFault class is used to propagate the appropriate error code and description up the chain.
+      Typically the code is used to map the exception on the client side and the message is just a description
+      indicating the user/developer what exactly went wrong.
+
+    - Enhancing Exception with Detailed Information
+      The DetailSoapFaultDefinitionExceptionResolver extends from the SoapFaultMappingExceptionResolver and is used
+      for enhancing the SoapFault with detailed information about the error that occurred. We can override the customizeFault
+      method to enhance the exception with detail information. We do this by calling the addFaultDetail method of the SoapFault class,
+      and adding QName indicating the element with the addFaultDetailElement.
+
+
+      reference:
+      https://www.javaspringclub.com/spring-soap-web-services-add-soap-fault-exception-handling-part-iii/
+      https://memorynotfound.com/spring-ws-add-detail-soapfault-exception-handling/
+
+    - Added Detail as part of faultstring: <<since camel is not able to retrieve detail object!>>
+
+      Example:
+      <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+          <SOAP-ENV:Header/>
+          <SOAP-ENV:Body>
+              <SOAP-ENV:Fault>
+                  <faultcode>SOAP-ENV:Server</faultcode>
+                  <faultstring xml:lang="en">ERROR - NOT FOUND - Possible Country alpha2code values are : {in, us or ch}. Please use according country alpha2code!</faultstring>
+                  <detail>
+                      <code>NOT_FOUND</code>
+                      <description>Possible Country alpha2code values are : {in, us or ch}. Please use according country alpha2code!</description>
+                  </detail>
+              </SOAP-ENV:Fault>
+          </SOAP-ENV:Body>
+      </SOAP-ENV:Envelope>
+
+
+
+
+
